@@ -139,7 +139,7 @@ module ActiveStorage
       end
     end
 
-    def url_for_direct_upload(key, expires_in:, content_type:, content_length:, checksum:)
+    def url_for_direct_upload(key, expires_in:, content_type:, content_length:, checksum:, **others)
       instrument :url, key: key do |payload|
         url = Qiniu::Config.up_host(bucket)
         payload[:url] = url
